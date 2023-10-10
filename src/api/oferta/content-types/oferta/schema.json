@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ofertas",
+  "info": {
+    "singularName": "oferta",
+    "pluralName": "ofertas",
+    "displayName": "Oferta"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "imagen": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "pagina": {
+      "type": "string"
+    }
+  }
+}

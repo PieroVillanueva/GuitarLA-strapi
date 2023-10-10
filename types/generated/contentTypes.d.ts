@@ -745,6 +745,37 @@ export interface ApiGuitarraGuitarra extends Schema.CollectionType {
   };
 }
 
+export interface ApiOfertaOferta extends Schema.CollectionType {
+  collectionName: 'ofertas';
+  info: {
+    singularName: 'oferta';
+    pluralName: 'ofertas';
+    displayName: 'Oferta';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    imagen: Attribute.Media & Attribute.Required;
+    pagina: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::oferta.oferta',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::oferta.oferta',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPostPost extends Schema.CollectionType {
   collectionName: 'posts';
   info: {
@@ -789,6 +820,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::curso.curso': ApiCursoCurso;
       'api::guitarra.guitarra': ApiGuitarraGuitarra;
+      'api::oferta.oferta': ApiOfertaOferta;
       'api::post.post': ApiPostPost;
     }
   }
